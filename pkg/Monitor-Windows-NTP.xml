@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uptime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uptimesoftware.com/erdc/erdc erdc" xmlns="http://www.uptimesoftware.com/erdc/erdc" xmlns:upt="http://www.uptimesoftware.com/erdc/erdc" version="4.0" target_grouping="other">
+	<class>Monitor Windows NTP</class>
+	<exec>com.uptimesoftware.uptime.erdc.MonitorCustomScriptRunner</exec>
+	<erdc_version>1.0</erdc_version>
+	<category>Operating System Monitors</category>
+    <category_related>Operating System Monitors</category_related>
+    <grid_info>
+        <supported_versions>7.3,7.4,7.5,7.6,7.7,7.8</supported_versions>
+        <supported_platforms>windows</supported_platforms>
+        <upgrade_in_place>true</upgrade_in_place>
+        <requires_agent_scripts>false</requires_agent_scripts>
+    </grid_info>	
+	<elements>
+		<element name="process" parameter_type="input" data_type="string" gui_basic="1" range_type="0" hidden="true">
+			<control_options> size:40 </control_options>
+			<default_value>plugins/scripts/Monitor-Windows-NTP/Monitor-Windows-NTP.bat</default_value>
+			<short_description>Script Name</short_description>
+			<long_description>Name of the script/binary/process to be executed by uptime </long_description>
+			<validation_rule><alphanumeric/></validation_rule>
+			<error_message><alphanumeric>required field</alphanumeric></error_message>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='Last_Sync_Error' parameter_type='output' data_type='integer' gui_basic='' range_type='0' units='#'>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Last_Sync_Error</short_description>
+			<long_description>This should always be 0.</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><integer/></gui_type>
+		</element>
+		<element name='Last_Successful_Sync_Time' parameter_type='output' data_type='string' gui_basic='' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Last_Successful_Sync_Time</short_description>
+			<long_description>Date / Time of last good sync.</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='Time_since_Last_Good_Sync_Time' parameter_type='output' data_type='integer' gui_basic='' range_type='0' units='s'>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Time_since_Last_Good_Sync_Time</short_description>
+			<long_description>Seconds since last good sync. Good for alerting.</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><integer/></gui_type>
+		</element>
+		<element name='Source' parameter_type='output' data_type='string' gui_basic='' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Source</short_description>
+			<long_description>Host this machine is using as a time source.</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='Type' parameter_type='output' data_type='string' gui_basic='' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Type</short_description>
+			<long_description>How the computer is getting its time. NT5DS is typical for servers &#x28;domain heirarchy&#x29;, NTP is direct with a time server &#x28;typical for domain controllers&#x29;</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='Precision' parameter_type='output' data_type='string' gui_basic='' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Precision</short_description>
+			<long_description>How much time is represented by a clock tick</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name='Stratum' parameter_type='output' data_type='string' gui_basic='' range_type='0' units=''>
+			<control_options>size:8</control_options>
+			<default_value></default_value>
+			<short_description>Stratum</short_description>
+			<long_description>Degrees from master clock source</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><string/></gui_type>
+		</element>
+		<element name="timer" parameter_type="output" data_type="integer" gui_basic="0" range_type="0" units="ms">
+			<control_options>size:8</control_options>
+			<default_value/>
+			<short_description>Response time</short_description>
+			<long_description>Response time in ms</long_description>
+			<validation_rule/>
+			<error_message/>
+			<gui_type><integer/></gui_type>
+		</element>
+	</elements>
+	<help>Retrieves everything available from the Win32_PerfFormattedData_PerfOS_Memory WMI class.</help>
+</uptime>
+
+
+
+
